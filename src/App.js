@@ -260,14 +260,7 @@ const PAYPLAY_METRICS = [
 ];
 
 const S = {
-  app: {
-    minHeight: '100vh',
-    background: '#000',
-    fontFamily: "'Rajdhani',sans-serif",
-    color: '#fff',
-    maxWidth: 430,
-    margin: '0 auto',
-  },
+  app: { minHeight:"100vh", background:"#000", fontFamily:"'Rajdhani',sans-serif", color:"#fff", maxWidth:"100%", margin:"0 auto", padding:"0 0 40px 0" },
   card: {
     background: '#0a0a0a',
     border: '1px solid #1a1a1a',
@@ -2090,16 +2083,17 @@ export default function App() {
 
   return (
     <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Space+Mono:wght@400;700&display=swap');
-        *{box-sizing:border-box;margin:0;padding:0;}
-        body{background:#000;}
-        button{outline:none;}
-        input,textarea{outline:none;}
-        input:focus,textarea:focus{border-color:#39FF14!important;}
-        ::-webkit-scrollbar{width:3px;height:3px;}
-        ::-webkit-scrollbar-thumb{background:#1a1a1a;border-radius:4px;}
-      `}</style>
+     <style>{`
+  @import url('https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Space+Mono:wght@400;700&display=swap');
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html,body,#root{height:100%;width:100%;}
+  body{background:#000;overflow-x:hidden;}
+  button{outline:none;-webkit-tap-highlight-color:transparent;}
+  input,textarea{outline:none;-webkit-appearance:none;}
+  input:focus,textarea:focus{border-color:#39FF14!important;}
+  ::-webkit-scrollbar{width:3px;height:3px;}
+  ::-webkit-scrollbar-thumb{background:#1a1a1a;border-radius:4px;}
+`}</style>
       <div style={S.app}>
         <div
           style={{ padding: '20px 18px 0', borderBottom: '1px solid #0f0f0f' }}
