@@ -260,7 +260,7 @@ const PAYPLAY_METRICS = [
 ];
 
 const S = {
-  app: { minHeight:"100vh", background:"#000", fontFamily:"'Rajdhani',sans-serif", color:"#fff", maxWidth:"100%", margin:"0 auto", padding:"0 0 40px 0" },
+ app: { minHeight:"100vh", background:"#000", fontFamily:"'Rajdhani',sans-serif", color:"#fff", width:"100%", maxWidth:"100%", margin:"0 auto", padding:"0 0 40px 0", overflowX:"hidden" },
   card: {
     background: '#0a0a0a',
     border: '1px solid #1a1a1a',
@@ -767,7 +767,7 @@ function FeedbackForm({ onDone }) {
     );
 
   return (
-    <div style={{ padding: '20px 18px' }}>
+    <div style={{ padding:"16px 14px" }}>
       <Progress step={actualStep} total={TOTAL} />
       <div
         style={{
@@ -2096,7 +2096,7 @@ export default function App() {
 `}</style>
       <div style={S.app}>
         <div
-          style={{ padding: '20px 18px 0', borderBottom: '1px solid #0f0f0f' }}
+          <div style={{padding:"16px 14px 0",borderBottom:"1px solid #0f0f0f"}}>
         >
           <div
             style={{
