@@ -142,7 +142,7 @@ function FeedbackPage({onAdmin}) {
   const s = {
     page:  {position:"fixed",inset:0,background:"#000",display:"flex",flexDirection:"column",overflow:"hidden"},
     head:  {padding:"16px 16px 0",flexShrink:0},
-    body:  {flex:1,overflowY:"auto",padding:"16px 16px 0",WebkitOverflowScrolling:"touch"},
+   body:{flex:1,overflowY:"auto",padding:"16px 16px 0",WebkitOverflowScrolling:"touch",display:"flex",flexDirection:"column"},
     foot:  {padding:"12px 16px 20px",flexShrink:0,background:"linear-gradient(to top,#000 70%,transparent)"},
     card:  {background:"#0f0f0f",border:"1px solid #1a1a1a",borderRadius:14,padding:"14px",marginBottom:10,width:"100%",boxSizing:"border-box"},
     selC:  {background:"#001800",border:"1.5px solid #39FF14",borderRadius:14,padding:"14px",marginBottom:10,width:"100%",boxSizing:"border-box",boxShadow:"0 0 10px #39FF1420"},
@@ -296,7 +296,7 @@ function FeedbackPage({onAdmin}) {
           </div>
         </>}
 
-        <div style={{height:120}}/>
+        <div style={{flex:1,minHeight:20}}/>
       </div>
 
       {/* FOOTER */}
