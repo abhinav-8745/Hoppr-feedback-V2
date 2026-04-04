@@ -1,4 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+
+function useAppHeight() {
+  const [h, setH] = useState(window.innerHeight);
+  useEffect(() => {
+    const set = () => setH(window.innerHeight);
+    window.addEventListener("resize", set);
+    window.addEventListener("orientationchange", set);
+    return () => { window.removeEventListener("resize", set); window.removeEventListener("orientationchange", set); };
+  }, []);
+  return h;
+}
 
 const SHEET_URL = [
   "https://script.google.com/macros/s/",
@@ -88,6 +99,7 @@ function ProgressBar({step,total}) {
 
 // ── FEEDBACK PAGE ─────────────────────────────────────────────────────────────
 function FeedbackPage({onAdmin}) {
+  const appH = useAppHeight();
   const TOTAL=9;
   const [step,setStep]       = useState(1);
   const [centre,setCentre]   = useState(null);
@@ -139,8 +151,7 @@ function FeedbackPage({onAdmin}) {
     setSaving(false);setStep(10);
   };
 
-  const s = {
-    page:  {position:"fixed",inset:0,background:"#000",display:"flex",flexDirection:"column",overflow:"hidden"},
+  const s = {page:{position:"fixed",top:0,left:0,right:0,height:`${appH}px`,background:"#000",display:"flex",flexDirection:"column",overflow:"hidden"},
     head:  {padding:"16px 16px 0",flexShrink:0},
    body:{flex:1,overflowY:"auto",padding:"16px 16px 0",WebkitOverflowScrolling:"touch",display:"flex",flexDirection:"column"},
     foot:  {padding:"12px 16px 20px",flexShrink:0,background:"linear-gradient(to top,#000 70%,transparent)"},
