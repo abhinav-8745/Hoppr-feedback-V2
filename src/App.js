@@ -194,18 +194,21 @@ function FeedbackPage({onAdmin}) {
       {/* BODY */}
       <div style={s.body}>
 
-        {step===1&&<>
-          <span style={s.lbl}>Centre</span>
-          <div style={s.h1}>Which centre did you visit?</div>
-          {CENTRES.map(c=>(
-            <button key={c} onClick={()=>setCentre(c)}
-              style={{...(centre===c?s.selC:s.card),display:"flex",justifyContent:"space-between",alignItems:"center",border:"none",cursor:"pointer",textAlign:"left",WebkitTapHighlightColor:"transparent"}}>
-              <span style={{fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:17,color:centre===c?"#39FF14":"#ccc"}}>🏟️  {c}</span>
-              {centre===c&&<span style={{color:"#39FF14",fontSize:18}}>✓</span>}
-            </button>
-          ))}
-        </>}
-
+      {step===1&&<>
+  <span style={s.lbl}>Centre</span>
+  <div style={s.h1}>Which centre did you visit?</div>
+  <div style={{display:"flex",flexDirection:"column",gap:0,flex:1}}>
+    {CENTRES.map(c=>(
+      <button key={c} onClick={()=>setCentre(c)}
+        style={{...(centre===c?s.selC:s.card),display:"flex",justifyContent:"space-between",
+          alignItems:"center",border:"none",cursor:"pointer",textAlign:"left",
+          WebkitTapHighlightColor:"transparent",flex:1,marginBottom:8}}>
+        <span style={{fontFamily:"'Rajdhani',sans-serif",fontWeight:700,fontSize:17,color:centre===c?"#39FF14":"#ccc"}}>🏟️  {c}</span>
+        {centre===c&&<span style={{color:"#39FF14",fontSize:18}}>✓</span>}
+      </button>
+    ))}
+  </div>
+</>}
         {step===2&&<>
           <span style={s.lbl}>Division</span>
           <div style={s.h1}>What brings you here?</div>
