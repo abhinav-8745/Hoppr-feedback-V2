@@ -348,14 +348,23 @@ function AdminLogin({onSuccess}) {
     return()=>window.removeEventListener("resize",update);
   },[]);
 
-  const login=()=>{
-    setLoad(true);setError("");
-    setTimeout(()=>{
-      if(email.trim().toLowerCase()===ADMIN_EMAIL&&password===ADMIN_PASSWORD){onSuccess();}
-      else if(email.trim().toLowerCase()!==ADMIN_EMAIL){setError("Access denied. Only info@hoppr.club is authorised.");}
-      else{setError("Incorrect password.");}
-      setLoad(false);
-    },800);
+<button
+  onTouchEnd={(e)=>{e.preventDefault();login();}}
+  onClick={login}
+  disabled={!email.trim()||!password.trim()||loading}
+  style={{
+    width:"100%",padding:"30px",borderRadius:20,border:"none",
+    background:!email.trim()||!password.trim()||loading?"#1a1a1a":"#39FF14",
+    color:!email.trim()||!password.trim()||loading?"#444":"#000",
+    fontWeight:700,fontSize:32,cursor:"pointer",
+    fontFamily:"'Rajdhani',sans-serif",
+    WebkitTapHighlightColor:"transparent",
+    touchAction:"manipulation",
+    userSelect:"none",
+    WebkitUserSelect:"none",
+  }}>
+  {loading?"Verifying…":"Access Dashboard →"}
+</button>
   };
 
   const inp={width:"100%",background:"#0f0f0f",border:"1.5px solid #1e1e1e",borderRadius:16,color:"#fff",fontFamily:"'Space Mono',monospace",fontSize:22,padding:"22px",outline:"none",boxSizing:"border-box",WebkitAppearance:"none",marginBottom:18};
